@@ -7,18 +7,19 @@ const TodoForm = (props) => {
   });
 
   const handleChanges = (e) => {
-    setNewtodo({ newTodo: e.target.value });
+    setNewtodo(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTask(props.todo);
+    props.addTask(newTodo);
+    setNewtodo("");
   };
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="todo"
-        value={props.todo}
+        value={newTodo.todo}
         onChange={handleChanges}
         placeholder="Add Task"
       />
